@@ -18,5 +18,6 @@ $factory->define(Enterprise::class, static function(Faker $faker) {
     'objsname' => $organization['name'],
     'objstatus' => null,
     'is_root' => false,
+    'quota' => 4
   ];
 });

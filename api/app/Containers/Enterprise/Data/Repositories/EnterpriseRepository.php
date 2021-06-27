@@ -14,4 +14,10 @@ use Prettus\Repository\Exceptions\RepositoryException;
  */
 class EnterpriseRepository extends Repository
 {
+    public function groupBy($by)
+    {
+        $this->model = $this->model->groupBy($by);
+
+        return $this;
+    }
 }

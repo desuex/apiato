@@ -10,7 +10,7 @@ return [
         Exception::class => \App\Ship\Exceptions\Formatters\ExceptionFormatter::class,
     ],
 
-    'response_factory' => \App\Ship\Exceptions\Builders\ExceptionBuilder::class,
+    'response_factory' => \Optimus\Heimdal\ResponseFactory::class,
 
     'reporters' => [
 

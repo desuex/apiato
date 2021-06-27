@@ -8,4 +8,6 @@ interface EnterpriseServiceInterface
     public function getAll($search);
 
     public function getAllByParent(int $id);
+
+    public function getAllReachingQuotaLimit();
 }

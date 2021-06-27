@@ -17,4 +17,9 @@ class EnterpriseService implements EnterpriseServiceInterface
     {
         return Apiato::call(EnterpriseTasks::GET_ALL_BY_PARENT_TASK, [$parent]);
     }
+
+    public function getAllReachingQuotaLimit()
+    {
+        return Apiato::call(EnterpriseTasks::GET_ALL_ENTERPRISES_REACHING_QUOTA_LIMIT_TASK, [], []);
+    }
 }

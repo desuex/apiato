@@ -12,6 +12,7 @@ class EnterpriseTable
     public const STATUS = 'objstatus'; // Статус ОЕ
     public const PARENTS = 'parents';
     public const IS_ROOT = 'is_root'; // Root элемент
+    public const QUOTA = 'quota'; // Root элемент
 
     public static $tID = self::TABLE . '.' . self::ID;
     public static $tIDREF = self::TABLE . '.' . self::IDREF;
@@ -26,7 +27,8 @@ class EnterpriseTable
         self::SNAME,
         self::STATUS,
         self::PARENTS,
-        self::IS_ROOT
+        self::IS_ROOT,
+        self::QUOTA
     ];
 
     public const SORTABLE = [

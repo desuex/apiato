@@ -1,15 +1,18 @@
 <?php
 
+
 namespace App\Containers\Enterprise\Tasks;
 
+
+use App\Containers\Enterprise\Data\Criterias\ReachingQuotaLimitCriteria;
 use App\Containers\Enterprise\Data\Repositories\EnterpriseRepository;
 use App\Ship\Parents\Tasks\Task;
 use Prettus\Repository\Exceptions\RepositoryException;
 
-class GetAllEnterprisesTask extends Task
+class GetAllEnterprisesReachingQuotaLimitTask extends Task
 {
 
-    protected $repository;
+    protected EnterpriseRepository $repository;
 
     public function __construct(EnterpriseRepository $repository)
     {
@@ -17,13 +20,14 @@ class GetAllEnterprisesTask extends Task
     }
 
     /**
-     * @param $search
-     * @param int|null $limit
      * @return mixed
+     * @throws RepositoryException
      */
-    public function run($search, int $limit = null)
+    public function run()
     {
+        $this->repository->pushCriteria(new ReachingQuotaLimitCriteria());
         $this->addRequestCriteria($this->repository);
+
 
         return $this->repository->paginate($limit ?? '*');
     }
